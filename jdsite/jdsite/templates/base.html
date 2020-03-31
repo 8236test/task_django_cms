@@ -1,0 +1,56 @@
+{% load cms_tags menu_tags sekizai_tags  staticfiles %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGES_CODE }}">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="{% page_attribute 'meta_description' %}">
+  <meta name="author" content="">
+
+  <title>{% page_attribute 'page_title' %} -Jd Website</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href= "{% static "vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static "css/modern-business.css" %}" rel="stylesheet">
+  {% render_block "css" %}
+
+</head>
+
+<body>
+  {% cms_toolbar %}
+  <!-- Navigation -->
+  <div>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+          <div class="navbar-header">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/">HomePage</a>
+ 
+    </div>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            {% show_menu 0 100 100 0 %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  {% block content %}{% endblock content %}
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src= "{% static "vendor/jquery/jquery.min.js" %}"></script>
+  <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+  {% render_block "js" %}
+
+</body>
+
+</html>
